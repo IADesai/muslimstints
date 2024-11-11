@@ -19,3 +19,238 @@ You're about to initialize a Firebase project in this directory:
 
   C:\Users\ibee_\Documents\GitHub\muslimstints
 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-11-11T16:01:37.589Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:37.589Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:37.591Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-11-11T16:01:38.085Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-11T16:01:38.086Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project muslimstints (muslimstints) 
+[info] 
+=== Dataconnect Setup
+[debug] [2024-11-11T16:01:38.553Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:38.554Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:38.554Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/muslimstints/billingInfo [none]
+[debug] [2024-11-11T16:01:38.974Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/muslimstints/billingInfo 200
+[debug] [2024-11-11T16:01:38.974Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/muslimstints/billingInfo {"name":"projects/muslimstints/billingInfo","projectId":"muslimstints","billingAccountName":"billingAccounts/01B518-117E1B-8D35BD","billingEnabled":true}
+[info] i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled... 
+[debug] [2024-11-11T16:01:38.975Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:38.975Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:38.976Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firebasedataconnect.googleapis.com [none]
+[debug] [2024-11-11T16:01:38.976Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:01:39.788Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firebasedataconnect.googleapis.com 200
+[debug] [2024-11-11T16:01:39.788Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firebasedataconnect.googleapis.com [omitted]
+[info] +  dataconnect: required API firebasedataconnect.googleapis.com is enabled 
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[debug] [2024-11-11T16:01:39.790Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:39.790Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:39.790Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/sqladmin.googleapis.com [none]
+[debug] [2024-11-11T16:01:39.790Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/sqladmin.googleapis.com x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:01:40.551Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/sqladmin.googleapis.com 200
+[debug] [2024-11-11T16:01:40.551Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/sqladmin.googleapis.com [omitted]
+[info] +  dataconnect: required API sqladmin.googleapis.com is enabled 
+[info] i  dataconnect: ensuring required API compute.googleapis.com is enabled... 
+[debug] [2024-11-11T16:01:40.553Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:40.554Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:40.555Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/compute.googleapis.com [none]
+[debug] [2024-11-11T16:01:40.555Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/compute.googleapis.com x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:01:41.153Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/compute.googleapis.com 200
+[debug] [2024-11-11T16:01:41.153Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/compute.googleapis.com [omitted]
+[info] +  dataconnect: required API compute.googleapis.com is enabled 
+[debug] [2024-11-11T16:01:41.155Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:41.155Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:41.155Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1beta/projects/muslimstints/locations/-/services [none]
+[debug] [2024-11-11T16:01:42.254Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1beta/projects/muslimstints/locations/-/services 200
+[debug] [2024-11-11T16:01:42.255Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1beta/projects/muslimstints/locations/-/services {}
+[debug] [2024-11-11T16:01:44.645Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:44.645Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:44.645Z] >>> [apiv2][query] GET https://sqladmin.googleapis.com/v1/projects/muslimstints/instances [none]
+[debug] [2024-11-11T16:01:44.809Z] <<< [apiv2][status] GET https://sqladmin.googleapis.com/v1/projects/muslimstints/instances 200
+[debug] [2024-11-11T16:01:44.810Z] <<< [apiv2][body] GET https://sqladmin.googleapis.com/v1/projects/muslimstints/instances {"items":[{"kind":"sql#instance","state":"RUNNABLE","databaseVersion":"POSTGRES_15","settings":{"authorizedGaeApplications":[],"tier":"db-f1-micro","kind":"sql#settings","userLabels":{"firebase-data-connect":"ft"},"availabilityType":"ZONAL","pricingPlan":"PER_USE","replicationType":"SYNCHRONOUS","activationPolicy":"ALWAYS","ipConfiguration":{"authorizedNetworks":[],"sslMode":"ALLOW_UNENCRYPTED_AND_ENCRYPTED","ipv4Enabled":true,"requireSsl":false,"serverCaMode":"GOOGLE_MANAGED_INTERNAL_CA"},"locationPreference":{"zone":"europe-west2-b","kind":"sql#locationPreference"},"databaseFlags":[{"name":"cloudsql.iam_authentication","value":"on"}],"dataDiskType":"PD_SSD","backupConfiguration":{"startTime":"13:00","kind":"sql#backupConfiguration","backupRetentionSettings":{"retentionUnit":"COUNT","retainedBackups":7},"enabled":false,"transactionLogRetentionDays":7,"transactionalLogStorageState":"TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED"},"insightsConfig":{"queryInsightsEnabled":true,"queryStringLength":1024,"queryPlansPerMinute":5},"edition":"ENTERPRISE","connectorEnforcement":"NOT_REQUIRED","settingsVersion":"1","storageAutoResizeLimit":"0","storageAutoResize":false,"dataDiskSizeGb":"10","deletionProtectionEnabled":false,"enableGoogleMlIntegration":false},"etag":"32fd2693882cf8338781baeaabcbdf04f861d7e735755b14f885bab7d66c89fe","ipAddresses":[{"type":"PRIMARY","ipAddress":"35.189.93.99"},{"type":"OUTGOING","ipAddress":"34.105.191.98"}],"serverCaCert":{"kind":"sql#sslCert","certSerialNumber":"0","cert":"-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyRjNTJj\nYTY3Yy0zNTc0LTRlNTYtODJmYy0xYjdlODRjY2FhYWUxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjQxMTExMTU1MTEzWhcNMzQxMTA5MTU1MjEzWjB3MS0wKwYD\nVQQuEyRjNTJjYTY3Yy0zNTc0LTRlNTYtODJmYy0xYjdlODRjY2FhYWUxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCmuLAb/BZ8jxaqEHl/Fiu5kEfdRBj0w+U76etC9w7cPgtShITQpH5wf90JqrIc\ndr+ZXexttp7C1uafKRA6pFEFFwLFdv9ry6+WmtRxdqjNdHUIA+DTQ8dE4RngOtBS\n94leX6X7bO/xkre2bz2sPIj+EOxLcIratbEER5PcloVkLfjpDhqExypJGRey0Bh9\n2LNw6kXRI0UtwWa7XLDIDsJ8B6J+xljeBcssyN4pRzvDGOD4g138dkertn49uWLP\nYk0ycBbHp6aRfDWYen7Cbz34g1bGFgDpqAa1qDD+vOT9pwFLaVKodzCSmKhmF4h3\nW/XTKjO6/i7BYxT2jLTT5b0rAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAGJixIIi03UtQN86uRdtz3y9/JN8vagv572Do6MD\nxs1IflLyhlBy/Y/CTACkiz5K/uW43aD94FvIc1lNk3aP7jDXIiTi+urhq4pERPMR\nH3NCpYki2sAlgHTOynPT3TLc1eq0CRHzNHpf/9kQ+j7/TjlV46g5OBwnMcbx1+zK\n7uFkzIF24/UPuAnT7zzo+kFXro5ZqDgXA+x7q8HlTxMN7Wl1kMk5euohHsOpls+I\nawnekgYG/OR8I7OteE3+9vBys9o127KH83uh0DyZNajnxdpRRajnzPYmIFYbR8np\n8IvDh277nejKNp9gXTRVtx95meyoXBhzRf9LRm9l3W3Iv4Q=\n-----END CERTIFICATE-----","commonName":"C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=c52ca67c-3574-4e56-82fc-1b7e84ccaaae","sha1Fingerprint":"5372e9bd77fcc8e6de62158670236e2a9285fa25","instance":"muslimstints-fdc","createTime":"2024-11-11T15:51:13.402Z","expirationTime":"2034-11-09T15:52:13.402Z"},"instanceType":"CLOUD_SQL_INSTANCE","project":"muslimstints","serviceAccountEmailAddress":"p732662707541-zjb0dy@gcp-sa-cloud-sql.iam.gserviceaccount.com","backendType":"SECOND_GEN","selfLink":"https://sqladmin.googleapis.com/v1/projects/muslimstints/instances/muslimstints-fdc","connectionName":"muslimstints:europe-west2:muslimstints-fdc","name":"muslimstints-fdc","region":"europe-west2","gceZone":"europe-west2-b","databaseInstalledVersion":"POSTGRES_15_8","maintenanceVersion":"POSTGRES_15_8.R20240910.01_15","createTime":"2024-11-11T15:50:19.958Z","sqlNetworkArchitecture":"NEW_NETWORK_ARCHITECTURE","satisfiesPzi":true}]}
+[debug] [2024-11-11T16:01:44.810Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:44.810Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:44.811Z] >>> [apiv2][query] GET https://monitoring.googleapis.com/v3/projects/muslimstints/timeSeries/ filter=metric.type%3D%22serviceruntime.googleapis.com%2Fquota%2Fallocation%2Fusage%22+AND+metric.label.quota_metric+%3D+%22sqladmin.googleapis.com%2Ffdc_lifetime_free_trial_per_project%22&interval.endTime=2024-11-11T16%3A01%3A44.810Z&interval.startTime=2024-11-04T16%3A01%3A44.810Z
+[debug] [2024-11-11T16:01:45.515Z] <<< [apiv2][status] GET https://monitoring.googleapis.com/v3/projects/muslimstints/timeSeries/ 200
+[debug] [2024-11-11T16:01:45.516Z] <<< [apiv2][body] GET https://monitoring.googleapis.com/v3/projects/muslimstints/timeSeries/ {"timeSeries":[{"metric":{"labels":{"quota_metric":"sqladmin.googleapis.com/fdc_lifetime_free_trial_per_project"},"type":"serviceruntime.googleapis.com/quota/allocation/usage"},"resource":{"type":"consumer_quota","labels":{"service":"sqladmin.googleapis.com","project_id":"muslimstints","location":"global"}},"metricKind":"GAUGE","valueType":"INT64","points":[{"interval":{"startTime":"2024-11-11T15:50:21Z","endTime":"2024-11-11T15:50:21Z"},"value":{"int64Value":"1"}}]}],"unit":"1"}
+[debug] [2024-11-11T16:01:46.580Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:46.580Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:01:46.580Z] >>> [apiv2][query] GET https://sqladmin.googleapis.com/v1/projects/muslimstints/instances/muslimstints-fdc/databases [none]
+[debug] [2024-11-11T16:01:46.782Z] <<< [apiv2][status] GET https://sqladmin.googleapis.com/v1/projects/muslimstints/instances/muslimstints-fdc/databases 200
+[debug] [2024-11-11T16:01:46.782Z] <<< [apiv2][body] GET https://sqladmin.googleapis.com/v1/projects/muslimstints/instances/muslimstints-fdc/databases {"kind":"sql#databasesList","items":[{"kind":"sql#database","charset":"UTF8","collation":"en_US.UTF8","etag":"75f2309711881d07822db8e1b7d17be9be06f8372724390d20041b1b1307679a","name":"postgres","instance":"muslimstints-fdc","selfLink":"https://sqladmin.googleapis.com/v1/projects/muslimstints/instances/muslimstints-fdc/databases/postgres","project":"muslimstints"}]}
+[info] +  Wrote dataconnect\dataconnect.yaml 
+[info] i  dataconnect\schema\schema.gql is unchanged 
+[info] +  Wrote dataconnect\connector\connector.yaml 
+[info] i  dataconnect\connector\queries.gql is unchanged 
+[info] i  dataconnect\connector\mutations.gql is unchanged 
+[info] +  Detected WEB app in directory C:\Users\ibee_\Documents\GitHub\muslimstints 
+[info] i  Wrote new config to C:\Users\ibee_\Documents\GitHub\muslimstints\dataconnect\connector/connector.yaml 
+[info] I1111 16:02:00.063056   18376 codegen.go:82] [connector "default" javascriptSdk] Generating sources into "C:\\Users\\ibee_\\Documents\\GitHub\\muslimstints\\dataconnect-generated\\js\\default-connector"
+I1111 16:02:00.063056   18376 generate.go:40] Generated all sources. Writing them to disk...
+I1111 16:02:00.073095   18376 collector.go:107] connector "default" javascriptSdk wrote into "C:\\Users\\ibee_\\Documents\\GitHub\\muslimstints\\dataconnect-generated\\js\\default-connector"
+Generated sources: esm\index.esm.js [186B] esm\package.json [17B] index.cjs.js [227B] package.json [623B] index.d.ts [264B] 
+
+[info] i  Generated SDK code for default 
+[info] +  If you'd like to add more generated SDKs to your app your later, run firebase init dataconnect:sdk again 
+[info] 
+=== Firestore Setup
+[debug] [2024-11-11T16:02:00.132Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:00.133Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:00.133Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firestore.googleapis.com [none]
+[debug] [2024-11-11T16:02:00.133Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firestore.googleapis.com x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:02:00.940Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firestore.googleapis.com 200
+[debug] [2024-11-11T16:02:00.940Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/firestore.googleapis.com [omitted]
+[debug] [2024-11-11T16:02:00.941Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:00.941Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:00.941Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default) [none]
+[debug] [2024-11-11T16:02:01.079Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default) 200
+[debug] [2024-11-11T16:02:01.079Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default) {"name":"projects/muslimstints/databases/(default)","uid":"88bca55b-787f-4523-b815-2dc2a656038c","createTime":"2024-11-11T08:14:39.669701Z","updateTime":"2024-11-11T08:14:39.669701Z","locationId":"europe-west2","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2024-11-11T15:02:03.783913Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"g","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"IJ+R/cXT1IkDMILLppjr04kD"}
+[debug] [2024-11-11T16:02:01.080Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-11-11T16:02:01.080Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-11-11T16:02:01.080Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-11T16:02:01.081Z] > authorizing via signed-in user (smileyibee123@gmail.com)
+[debug] [2024-11-11T16:02:01.081Z] [iam] checking project muslimstints for permissions ["firebase.projects.get"]
+[debug] [2024-11-11T16:02:01.081Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:01.082Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:01.082Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions [none]
+[debug] [2024-11-11T16:02:01.082Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:02:01.082Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-11T16:02:01.259Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions 200
+[debug] [2024-11-11T16:02:01.259Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-11-11T16:02:03.769Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:03.769Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:03.770Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/muslimstints/releases pageSize=10&pageToken=
+[debug] [2024-11-11T16:02:04.513Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/muslimstints/releases 200
+[debug] [2024-11-11T16:02:04.513Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/muslimstints/releases {"releases":[{"name":"projects/muslimstints/releases/cloud.firestore","rulesetName":"projects/muslimstints/rulesets/ff98c58a-ee9d-4b20-b744-625e31b6c56f","createTime":"2024-11-11T08:14:45.999481Z","updateTime":"2024-11-11T08:14:45.999481Z"}]}
+[debug] [2024-11-11T16:02:04.514Z] Found ruleset: projects/muslimstints/rulesets/ff98c58a-ee9d-4b20-b744-625e31b6c56f
+[debug] [2024-11-11T16:02:04.514Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:04.514Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:04.514Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/muslimstints/rulesets/ff98c58a-ee9d-4b20-b744-625e31b6c56f [none]
+[debug] [2024-11-11T16:02:04.705Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/muslimstints/rulesets/ff98c58a-ee9d-4b20-b744-625e31b6c56f 200
+[debug] [2024-11-11T16:02:04.706Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/muslimstints/rulesets/ff98c58a-ee9d-4b20-b744-625e31b6c56f [omitted]
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-11-11T16:02:06.956Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:06.957Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:06.957Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:06.957Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:06.957Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2024-11-11T16:02:06.960Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2024-11-11T16:02:07.082Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2024-11-11T16:02:07.082Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/muslimstints/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[debug] [2024-11-11T16:02:07.092Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2024-11-11T16:02:07.092Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/muslimstints/databases/(default)/collectionGroups/-/indexes {}
+[info] 
+=== Functions Setup
+[debug] [2024-11-11T16:02:07.094Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-11T16:02:07.095Z] > authorizing via signed-in user (smileyibee123@gmail.com)
+[debug] [2024-11-11T16:02:07.095Z] [iam] checking project muslimstints for permissions ["firebase.projects.get"]
+[debug] [2024-11-11T16:02:07.095Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:07.095Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:07.095Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions [none]
+[debug] [2024-11-11T16:02:07.095Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:02:07.096Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-11T16:02:07.692Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions 200
+[debug] [2024-11-11T16:02:07.692Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/muslimstints:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-11T16:02:07.692Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:07.693Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:07.693Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:07.693Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:07.693Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-11-11T16:02:07.693Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:02:07.695Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-11-11T16:02:07.696Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/muslimstints
+[debug] [2024-11-11T16:02:08.435Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/runtimeconfig.googleapis.com 200
+[debug] [2024-11-11T16:02:08.435Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-11-11T16:02:08.455Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/cloudfunctions.googleapis.com 200
+[debug] [2024-11-11T16:02:08.455Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/muslimstints/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] i  functions/requirements.txt is unchanged 
+[info] i  functions/.gitignore is unchanged 
+[info] i  functions/main.py is unchanged 
+[info] 
+=== Apphosting Setup
+[debug] [2024-11-11T16:02:17.402Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:17.403Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:17.403Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/muslimstints/billingInfo [none]
+[debug] [2024-11-11T16:02:18.074Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/muslimstints/billingInfo 200
+[debug] [2024-11-11T16:02:18.074Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/muslimstints/billingInfo {"name":"projects/muslimstints/billingInfo","projectId":"muslimstints","billingAccountName":"billingAccounts/01B518-117E1B-8D35BD","billingEnabled":true}
+[info] i  Writing default settings to apphosting.yaml... 
+[info] +  Wrote apphosting.yaml 
+[info] +  Create a new App Hosting backend with `firebase apphosting:backends:create` 
+[info] 
+=== Hosting Setup
+[debug] [2024-11-11T16:02:18.081Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:18.082Z] Checked if tokens are valid: true, expires at: 1731343520081
+[debug] [2024-11-11T16:02:18.082Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/muslimstints [none]
+[debug] [2024-11-11T16:02:18.311Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/muslimstints 200
+[debug] [2024-11-11T16:02:18.312Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/muslimstints {"projectId":"muslimstints","projectNumber":"732662707541","displayName":"muslimstints","name":"projects/muslimstints","resources":{"hostingSite":"muslimstints"},"state":"ACTIVE","etag":"1_5e61fdd5-86fa-40dc-acd2-65790441ea7b"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2024-11-11T16:02:26.142Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2024-11-11T16:02:26.189Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2024-11-11T16:02:26.190Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"11.0.1","browserURL":"https://www.gstatic.com/firebasejs/11.0.1/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/11.0.1/firebase.tgz"},"live":{"version":"11.0","browserURL":"https://www.gstatic.com/firebasejs/live/11.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/11.0/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/11.0.1/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/11.0.1/firebase-auth/cordova.js","auth/web-extension":"https://www.gstatic.com/firebasejs/11.0.1/firebase-auth/web-extension.js","functions":"https://www.gstatic.com/firebasejs/11.0.1/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/11.0.1/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/11.0.1/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/11.0.1/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js","vertexai":"https://www.gstatic.com/firebasejs/11.0.1/firebase-vertexai.js","data-connect":"https://www.gstatic.com/firebasejs/11.0.1/firebase-data-connect.js","firestore.memory":"https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.memory.js"}}
+[info] +  Wrote public/index.html 
+[info] 
+[info] i  Detected a .git folder at C:\Users\ibee_\Documents\GitHub\muslimstints 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=406254584&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2024-11-11T16:02:38.759Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2024-11-11T16:02:38.760Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2024-11-11T16:02:39.019Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2024-11-11T16:02:39.020Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2024-11-11T16:02:39.035Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2024-11-11T16:02:39.316Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2024-11-11T16:02:39.316Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"IADesai","id":113534999,"node_id":"U_kgDOBsRoFw","avatar_url":"https://avatars.githubusercontent.com/u/113534999?v=4","gravatar_id":"","url":"https://api.github.com/users/IADesai","html_url":"https://github.com/IADesai","followers_url":"https://api.github.com/users/IADesai/followers","following_url":"https://api.github.com/users/IADesai/following{/other_user}","gists_url":"https://api.github.com/users/IADesai/gists{/gist_id}","starred_url":"https://api.github.com/users/IADesai/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/IADesai/subscriptions","organizations_url":"https://api.github.com/users/IADesai/orgs","repos_url":"https://api.github.com/users/IADesai/repos","events_url":"https://api.github.com/users/IADesai/events{/privacy}","received_events_url":"https://api.github.com/users/IADesai/received_events","type":"User","user_view_type":"private","site_admin":false,"name":"Ibrahim Ayub Desai","company":"Sigma Labs","blog":"ibrahimayubdesai.com","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":12,"public_gists":0,"followers":9,"following":13,"created_at":"2022-09-14T14:45:14Z","updated_at":"2024-10-24T12:29:28Z","private_gists":0,"total_private_repos":16,"owned_private_repos":2,"disk_usage":26557,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as IADesai 
+[info] 
+[debug] [2024-11-11T16:02:47.497Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2024-11-11T16:02:47.645Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2024-11-11T16:02:47.646Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2024-11-11T16:03:13.060Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2024-11-11T16:03:13.218Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2024-11-11T16:03:13.218Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
