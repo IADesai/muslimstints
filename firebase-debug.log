@@ -1,0 +1,21 @@
+[debug] [2024-11-11T16:01:12.433Z] ----------------------------------------------------------------------
+[debug] [2024-11-11T16:01:12.438Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ibee_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-11-11T16:01:12.439Z] CLI Version:   13.24.2
+[debug] [2024-11-11T16:01:12.439Z] Platform:      win32
+[debug] [2024-11-11T16:01:12.439Z] Node Version:  v22.11.0
+[debug] [2024-11-11T16:01:12.440Z] Time:          Mon Nov 11 2024 16:01:12 GMT+0000 (Greenwich Mean Time)
+[debug] [2024-11-11T16:01:12.440Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-11T16:01:12.453Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-11T16:01:12.454Z] > authorizing via signed-in user (smileyibee123@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\ibee_\Documents\GitHub\muslimstints
+
