@@ -8,26 +8,77 @@
     <!-- Firebase Modular SDKs (v9+) -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
-      import { getAuth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signInWithEmailAndPassword,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
       import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-      import { getFunctions } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-functions.js";
 
       const firebaseConfig = {
-        apiKey: "{{ firebase_config.apiKey }}",
-        authDomain: "{{ firebase_config.authDomain }}",
-        projectId: "{{ firebase_config.projectId }}",
-        storageBucket: "{{ firebase_config.storageBucket }}",
-        messagingSenderId: "{{ firebase_config.messagingSenderId }}",
-        appId: "{{ firebase_config.appId }}",
-        measurementId: "{{ firebase_config.measurementId }}",
+        apiKey: "AIzaSyDvPJe2pmsdUq2BRvtGG4SDpM936igXomI",
+        authDomain: "muslimstints.firebaseapp.com",
+        databaseURL:
+          "https://muslimstints-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "muslimstints",
+        storageBucket: "muslimstints.firebasestorage.app",
+        messagingSenderId: "732662707541",
+        appId: "1:732662707541:web:8a6865417857dd752febdc",
+        measurementId: "G-9L0V36KZHY",
       };
 
       const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
       const auth = getAuth(app);
       const db = getFirestore(app);
-      const functions = getFunctions(app);
+
+      // Initialize Petite Vue application
+      const appInstance = PetiteVue.createApp({
+        user: null, // Reactive property for the user object
+        email: "",
+        password: "",
+        functionResponse: "",
+
+        // Set the user when the auth state changes
+        init() {
+          onAuthStateChanged(auth, (user) => {
+            this.user = user;
+          });
+        },
+
+        // Login method
+        async loginUser() {
+          try {
+            const userCredential = await signInWithEmailAndPassword(
+              auth,
+              this.email,
+              this.password
+            );
+            this.user = userCredential.user; // Update the user after login
+          } catch (error) {
+            console.error("Login failed", error);
+          }
+        },
+
+        // Logout method
+        async logoutUser() {
+          try {
+            await signOut(auth);
+            this.user = null; // Clear user on logout
+          } catch (error) {
+            console.error("Logout failed", error);
+          }
+        },
+
+        // Example method to call Firebase cloud function
+        async callServerlessFunction() {
+          // Call a Firebase cloud function if needed
+          // this.functionResponse = await callYourFunction();
+        },
+      });
+
+      appInstance.init();
+      appInstance.mount();
     </script>
 
     <!-- Additional dependencies -->
@@ -47,7 +98,7 @@
       }
     </style>
   </head>
-  <body v-scope="app">
+  <body v-scope="appInstance">
     <div class="container py-5">
       <h1 class="text-center">muslimstints</h1>
 

@@ -9,6 +9,7 @@
   "functions": [
     {
       "source": "functions",
+      "region": "europe-west2",
       "codebase": "default",
       "ignore": [
         "venv",
@@ -21,11 +22,7 @@
   ],
   "hosting": {
     "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
