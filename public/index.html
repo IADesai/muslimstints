@@ -3,43 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muslim Stints</title>
+    <title>Petite Vue + Firebase + Ionic Capacitor</title>
 
-    <!-- Firebase Modular SDKs (v9+) -->
+    <!-- Firebase SDK -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
       import {
         getAuth,
         onAuthStateChanged,
+        createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
         signOut,
       } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
       const firebaseConfig = {
-        apiKey: "AIzaSyDvPJe2pmsdUq2BRvtGG4SDpM936igXomI",
+        apiKey: "AIzaSyBAasFIFGcPq1p205G36yVoTd9-UqMMLwk",
         authDomain: "muslimstints.firebaseapp.com",
-        databaseURL:
-          "https://muslimstints-default-rtdb.europe-west1.firebasedatabase.app",
         projectId: "muslimstints",
-        storageBucket: "muslimstints.firebasestorage.app",
+        storageBucket: "muslimstints.appspot.com",
         messagingSenderId: "732662707541",
         appId: "1:732662707541:web:8a6865417857dd752febdc",
-        measurementId: "G-9L0V36KZHY",
       };
 
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
-      const db = getFirestore(app);
 
       // Initialize Petite Vue application
       const appInstance = PetiteVue.createApp({
-        user: null, // Reactive property for the user object
+        user: null,
         email: "",
         password: "",
+        confirmPassword: "",
+        isSignUp: false,
         functionResponse: "",
+        loginError: "", // Holds errors for login
+        signUpError: "", // Holds errors for sign-up
 
-        // Set the user when the auth state changes
+        // Firebase Auth State Change
         init() {
           onAuthStateChanged(auth, (user) => {
             this.user = user;
@@ -48,15 +48,41 @@
 
         // Login method
         async loginUser() {
+          this.loginError = ""; // Clear previous errors
           try {
             const userCredential = await signInWithEmailAndPassword(
               auth,
               this.email,
               this.password
             );
-            this.user = userCredential.user; // Update the user after login
+            this.user = userCredential.user;
+            console.log("Login successful:", userCredential.user);
           } catch (error) {
-            console.error("Login failed", error);
+            this.loginError = error.message; // Store the error
+            console.error("Login failed:", error.message);
+          }
+        },
+
+        // Sign-up method
+        async signUpUser() {
+          this.signUpError = ""; // Clear previous errors
+
+          if (this.password !== this.confirmPassword) {
+            this.signUpError = "Passwords do not match!";
+            return;
+          }
+
+          try {
+            const userCredential = await createUserWithEmailAndPassword(
+              auth,
+              this.email,
+              this.password
+            );
+            this.user = userCredential.user;
+            console.log("Sign-up successful:", userCredential.user);
+          } catch (error) {
+            this.signUpError = error.message; // Store the error
+            console.error("Sign-up failed:", error.message);
           }
         },
 
@@ -64,48 +90,35 @@
         async logoutUser() {
           try {
             await signOut(auth);
-            this.user = null; // Clear user on logout
+            this.user = null;
           } catch (error) {
-            console.error("Logout failed", error);
+            console.error("Logout failed:", error.message);
           }
-        },
-
-        // Example method to call Firebase cloud function
-        async callServerlessFunction() {
-          // Call a Firebase cloud function if needed
-          // this.functionResponse = await callYourFunction();
         },
       });
 
-      appInstance.init();
       appInstance.mount();
     </script>
 
-    <!-- Additional dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/petite-vue@latest"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.2.2"></script>
-
-    <style>
-      body {
-        background: #eceff1;
-        color: rgba(0, 0, 0, 0.87);
-        font-family: Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   </head>
-  <body v-scope="appInstance">
+
+  <body v-scope>
     <div class="container py-5">
       <h1 class="text-center">muslimstints</h1>
 
       <!-- Authentication Form -->
       <div v-if="!user">
-        <h2>Login</h2>
-        <form @submit.prevent="loginUser">
+        <!-- Title dynamically changes -->
+        <h2>{{ isSignUp ? "Sign Up" : "Login" }}</h2>
+
+        <!-- Single form for both Login and Sign Up -->
+        <form @submit.prevent="isSignUp ? signUpUser() : loginUser()">
+          <!-- Email Input -->
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input
@@ -113,9 +126,12 @@
               id="email"
               class="form-control"
               v-model="email"
+              placeholder="Enter your email"
               required
             />
           </div>
+
+          <!-- Password Input -->
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input
@@ -123,21 +139,52 @@
               id="password"
               class="form-control"
               v-model="password"
+              placeholder="Enter your password"
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+
+          <!-- Confirm Password Input for Sign-Up -->
+          <div v-if="isSignUp" class="mb-3">
+            <label for="confirmPassword" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="confirmPassword"
+              class="form-control"
+              v-model="confirmPassword"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+
+          <!-- Display Error Messages -->
+          <div v-if="loginError || signUpError" class="text-danger mb-3">
+            {{ isSignUp ? signUpError : loginError }}
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">
+            {{ isSignUp ? "Sign Up" : "Login" }}
+          </button>
+
+          <!-- Toggle between Login and Sign-Up -->
+          <p class="mt-3 text-center">
+            {{ isSignUp ? "Already have an account?" : "Don't have an account" + " yet?" }}
+            <a href="#" @click.prevent="isSignUp = !isSignUp">
+              {{ isSignUp ? "Switch to Login" : "Switch to Sign Up" }}
+            </a>
+          </p>
+            </a>
+          </p>
         </form>
       </div>
 
-      <!-- Logout and User Info -->
+      <!-- Logged-In Section -->
       <div v-else>
         <h2>Welcome, {{ user.email }}</h2>
         <button @click="logoutUser" class="btn btn-danger">Logout</button>
-        <button @click="callServerlessFunction" class="btn btn-secondary">
-          Call Cloud Function
-        </button>
-        <p>{{ functionResponse }}</p>
       </div>
     </div>
   </body>
