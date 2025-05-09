@@ -1,9 +1,43 @@
+// firestore.rules
 rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Base rule - authenticated users only
     match /{document=**} {
-      allow read, write: if false;
+      allow read, write: if request.auth != null;
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Businesses collection
+    match /businesses/{businessId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == businessId;
+    }
+    
+    // Stints collection - allow all authenticated users to read
+    match /stints/{stintId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+                    (resource == null || 
+                    resource.data.businessId == request.auth.uid);
+    }
+    
+    // Applications collection
+    match /applications/{applicationId} {
+      allow read: if request.auth != null && 
+                   (resource.data.userId == request.auth.uid || 
+                    get(/databases/$(database)/documents/stints/$(resource.data.stintId)).data.businessId == request.auth.uid);
+      allow create: if request.auth != null;
+    }
+    
+    // Admins collection
+    match /admins/{adminId} {
+      allow read: if request.auth != null && request.auth.uid == adminId;
     }
   }
 }
