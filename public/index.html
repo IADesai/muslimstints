@@ -211,42 +211,53 @@
 
           // In the init() method, update the onAuthStateChanged handler with better error handling
           onAuthStateChanged(auth, async (user) => {
+            console.log("Auth state changed:", user);
             this.user = user;
             this.loadingAppData = true;
 
             if (user) {
               try {
-                await this.fetchUserData();
+                console.log("➡️  Step 1: Calling fetchUserData...");
+                const success = await this.fetchUserData();
+                console.log("✅ Step 2: fetchUserData returned:", success);
+                if (!success) throw new Error("fetchUserData failed");
 
-                // ✅ Fix old boolean bug
+                console.log("➡️  Step 3: Normalizing accountType...");
                 if (this.accountType === true) this.accountType = "business";
                 if (this.accountType === false) this.accountType = "jobseeker";
+                console.log("✅ Step 4: accountType =", this.accountType);
 
+                console.log("➡️  Step 5: Checking admin...");
                 await this.checkAdminStatus();
 
                 if (this.accountType === "business") {
+                  console.log("➡️  Step 6a: Fetching business stints...");
                   await this.fetchBusinessStints();
                 } else {
+                  console.log("➡️  Step 6b: Fetching all stints...");
                   await this.fetchAllStints();
                 }
 
                 if (this.isAdmin) {
+                  console.log("➡️  Step 7: Fetching pending businesses...");
                   await this.fetchPendingBusinesses();
                 }
-
               } catch (error) {
-                console.error("Error during init:", error);
-                this.showToast("Failed to load data: " + error.message, "error");
+                console.error("🔥 ERROR in onAuthStateChanged:", error);
+                this.showToast("App load failed: " + error.message, "error");
               }
             } else {
+              console.log("⚠️ No user found (logged out)");
               this.accountType = "jobseeker";
               this.userProfile = null;
-              this.stints = [];
               this.business = {};
+              this.stints = [];
+              this.applications = [];
               this.isAdmin = false;
             }
 
-            this.loadingAppData = false; // ✅ Ready to render
+            console.log("🏁 Final step: setting loadingAppData = false");
+            this.loadingAppData = false;
           });
         },
 
@@ -507,7 +518,7 @@
         async fetchUserData() {
           if (!this.user) {
             console.error("Cannot fetch user data: User is null");
-            return;
+            return false; // Ensure a return value is given here for consistency
           }
 
           console.log("Fetching user data for:", this.user.uid);
@@ -539,7 +550,7 @@
                 );
               }
 
-              return;
+              return true;
             } else {
               console.log(
                 "No business profile found, checking users collection"
@@ -558,7 +569,7 @@
               // Populate user form data
               this.profile = { ...this.profile, ...docSnap.data() };
               console.log("User profile loaded:", this.profile);
-              return;
+              return true;
             } else {
               console.log("No user profile found either");
             }
@@ -579,9 +590,15 @@
             this.accountType = "jobseeker";
             this.profile = { ...this.profile, ...userData };
             console.log("Created new jobseeker profile");
+            return true;
           } catch (error) {
             console.error("Error fetching user data:", error);
             this.showToast("Error loading profile: " + error.message, "error");
+            return false;
+          } finally {
+            // Always run this part, whether an error occurs or not
+            this.loadingAppData = false; // Stop loading spinner
+            console.log("fetchUserData finished.");
           }
         },
 
@@ -2008,7 +2025,16 @@
       </div>
 
       <!-- Logged-In Section -->
-      <div v-else>
+      <!-- Show loader while app data is loading -->
+      <div
+        v-if="user && loadingAppData"
+        class="d-flex justify-content-center p-5"
+      >
+        <div class="loader"></div>
+      </div>
+
+      <!-- Only show the logged-in UI once everything is ready -->
+      <div v-if="user && !loadingAppData">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2>
             Welcome, {{ userProfile?.fullName || userProfile?.companyName ||
