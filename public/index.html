@@ -66,6 +66,7 @@
         accountType: "jobseeker", // "jobseeker" or "business"
         loginError: "",
         signUpError: "",
+        loadingAppData: true,
 
         // UI state
         activeTab: "profile", // "profile", "stints", "applications"
@@ -210,50 +211,42 @@
 
           // In the init() method, update the onAuthStateChanged handler with better error handling
           onAuthStateChanged(auth, async (user) => {
-            console.log("Auth state changed, user:", user);
             this.user = user;
+            this.loadingAppData = true;
 
             if (user) {
               try {
-                // Check if user has a profile
                 await this.fetchUserData();
-                console.log(
-                  "User data fetched, account type:",
-                  this.accountType
-                );
 
-                // Check if user is admin
+                // ✅ Fix old boolean bug
+                if (this.accountType === true) this.accountType = "business";
+                if (this.accountType === false) this.accountType = "jobseeker";
+
                 await this.checkAdminStatus();
-                console.log("Admin status checked:", this.isAdmin);
 
-                // If business account, fetch job postings
                 if (this.accountType === "business") {
                   await this.fetchBusinessStints();
-                  console.log("Business stints fetched");
                 } else {
-                  // For job seekers, fetch all stints
                   await this.fetchAllStints();
-                  console.log("All stints fetched for job seeker");
                 }
 
-                // If admin, fetch pending businesses
                 if (this.isAdmin) {
                   await this.fetchPendingBusinesses();
-                  console.log("Pending businesses fetched for admin");
                 }
+
               } catch (error) {
-                console.error("Error during initialization:", error);
-                this.showToast("Error loading data: " + error.message, "error");
+                console.error("Error during init:", error);
+                this.showToast("Failed to load data: " + error.message, "error");
               }
             } else {
-              // Reset state when user logs out
-              this.userProfile = null;
               this.accountType = "jobseeker";
+              this.userProfile = null;
               this.stints = [];
-              this.applications = [];
+              this.business = {};
               this.isAdmin = false;
-              this.pendingBusinesses = [];
             }
+
+            this.loadingAppData = false; // ✅ Ready to render
           });
         },
 
